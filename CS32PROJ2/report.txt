@@ -1,0 +1,185 @@
+Description:
+
+Doubly linked list is linear with a pointer to head. 
+Each node contains a value, a count of the value, and the pointers to the next and previous nodes. 
+The nodes are added in a stack fashion where the new node becomes the head node. 
+Empty multiset consists of a head pointer that points to null.
+
+Pseudocode:
+
+-Multiset::contain
+
+Loop through list to check for value
+return true if exists; false if it does not
+
+-Multiset::insert
+
+Loop through list to check for value
+If value exists
+ Increment value count and size of set
+If value does not exist and empty multiset
+ create first node with value
+If value does not exist
+ create new node with value and link to top of list
+
+-Multiset::erase
+
+Loop through list to check for value
+If value does not exist
+ return 0
+Else
+ decrement count and size by one 
+ If decrement makes count == 0
+  delete node according to case
+  case a: only node: make empty set
+  case b: tail node: new tail
+  case c: head node: new head
+  case d: middle node: link nodes on either side
+  decrement unique items
+ return 1
+
+-Multiset::eraseAll
+
+same as erase but remove n count of values if they exist
+
+-Multiset::count
+
+If contained return count 
+
+-Multiset::get
+
+Assign position to node
+take value of node
+return count of value
+
+-Multiset::swap
+
+swap head pointer
+swap size, unique size
+
+-Multiset::~Multiset
+
+Loop through list deleting nodes using two temp pointers
+
+-Multiset::Multiset (copy constructor)
+
+create new set of nodes take value of other
+link them using insert
+
+-Multiset::operator=
+
+copy swap implementation
+
+-void combine
+
+temp multiset hold both multisets 
+insert using get function
+swap with result
+
+-void subtract
+
+temp multiset hold first multiset
+erase using get function as guide
+swap with result 
+
+Test Cases:
+
+Checked some test cases from HWK 1 to ensure functions were working with linked list set up
+
+//check get function and string ItemType
+Multiset ms;
+ms.insert("fennel");
+ms.insert("fennel");
+ms.insert("fenugreek");
+ms.insert("fennel");
+for (int k = 0; k < ms.uniqueSize(); k++)
+{
+	std::string x;
+	int n = ms.get(k, x);
+	std::cout << x << " occurs " << n << " times." << std::endl;
+}
+
+//check swap function and string ItemType
+Multiset ms1;
+ms1.insert("cumin");
+ms1.insert("cumin");
+ms1.insert("cumin");
+ms1.insert("turmeric");
+Multiset ms2;
+ms2.insert("coriander");
+ms2.insert("cumin");
+ms2.insert("cardamom");
+ms1.swap(ms2);  // exchange contents of ms1 and ms2
+assert(ms1.size() == 3 && ms1.count("coriander") == 1 &&
+	ms1.count("cumin") == 1 && ms1.count("cardamom") == 1);
+assert(ms2.size() == 4 && ms2.count("cumin") == 3 &&
+	ms2.count("turmeric") == 1);
+======================================================================================================================
+
+//check subtract function visually as well as unique size & size functions
+Multiset m;
+m.insert(2);
+m.insert(2);
+m.insert(2);
+m.insert(8);
+m.insert(3);
+m.insert(3);
+m.insert(9);
+m.insert(5);
+Multiset m1;
+m1.insert(6);
+m1.insert(3);
+m1.insert(8);
+m1.insert(8);
+m1.insert(5);
+m1.insert(10);
+Multiset mr;
+subtract(m, m1, mr);  													
+cout << m.count(2) << endl << m.count(3) << endl << m.count(5) << endl 
+	<< m.count(6) << endl << m.count(8) << endl << m.count(9) << endl 
+	<< m.count(10) << endl << "unique " << m.uniqueSize() << endl;
+m.dump();
+cout << "# of 10 " << m1.count(10) << endl << "size " << m1.size() << endl << "unique " << m1.uniqueSize() << endl << "dump";
+mr.dump(); 		//visual check only subtraction n1 > n2
+assert(!mr.contains(5));
+cout << mr.count(2) << mr.count(3) << mr.count(9); // 3,1,1 respectively
+
+//check combination function, aliasing of combination visually & =operator
+Multiset m;
+m.insert(10);
+m.insert(10);
+m.insert(20);
+m.insert(30);
+Multiset m1;
+m1 = m;
+combination(m, m1, m);
+cout << "# of 10 " << m.count(10) << endl << "size " << m.size() << endl << "unique " << m.uniqueSize() 
+cout << "# of 10 " << m.count(10) << endl << "size " << m.size() << endl << "unique " << m.uniqueSize() << endl << "dump"; //double m1 except unique
+m.dump();
+
+
+//check combination function, aliasing of combination visually & copy constructor
+Multiset m;
+m.insert(10);
+m.insert(10);
+m.insert(20);
+m.insert(30);
+Multiset m1(m);
+combination(m, m1, m);
+cout << "# of 10 " << m.count(10) << endl << "size " << m.size() << endl << "unique " << m.uniqueSize() 
+cout << "# of 10 " << m.count(10) << endl << "size " << m.size() << endl << "unique " << m.uniqueSize() << endl << "dump"; //double m1 except unique
+m.dump();
+
+//check erase and erase all & copy of empty set
+Multiset m;
+m.insert(10);
+m.insert(10);
+m.insert(20);
+m.insert(30);
+m.eraseAll(10);
+assert(!m.contains(10))
+m.erase(20);
+m.erase(10);
+assert(m.empty());
+Multiset m1(m);             //proper copy of empty set
+assert(m1.empty());

@@ -1,0 +1,28 @@
+// Modification for a circular linked list with a dummy node.
+bool CircularSortedLinkedList::insert(const ItemType &value)
+{
+	Node *q = m_head;      // q is pointing to the dummy node
+	Node *p = m_head->m_next;
+
+	while (p != m_head)
+	{
+		// add it only if it doesn't already exist.
+		if (value == p->m_value)
+			return false;
+		//Find the first element with a greater value than the input value.
+		if (p->m_value > value)
+			break;
+		q = p;
+		p = p->m_next;
+	}
+
+	Node* newNode = newNode;   // The new node must sit between q and p.
+	newNode->m_value = value;
+	newNode->m_next = p;
+	newNode->m_prev=q;
+
+	p->m_prev = newNode;  // there is always a previous and next node 
+	q->m_next=newNode;    // (because of the dummy node)
+
+	m_size++;
+}
