@@ -1,0 +1,48 @@
+﻿Build started 1/17/2017 11:41:42 PM.
+     1>Project "C:\CS32\HWK1\HWK1\HWK1.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Multiset.cpp StudentMultiset.cpp newMultiset.cpp testMultiset.cpp testStudentMultiset.cpp testnewMultiset.cpp
+         testStudentMultiset.cpp
+         testMultiset.cpp
+         StudentMultiset.cpp
+         Multiset.cpp
+         Generating Code...
+     1>c:\cs32\hwk1\hwk1\studentmultiset.cpp(11): warning C4715: 'StudentMultiset::add' : not all control paths return a value
+         Skipping... (no relevant changes detected)
+         testnewMultiset.cpp
+         newMultiset.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\CS32\HWK1\Debug\HWK1.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\CS32\HWK1\Debug\HWK1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\CS32\HWK1\Debug\HWK1.lib" /MACHINE:X86 Debug\Multiset.obj
+         Debug\newMultiset.obj
+         Debug\StudentMultiset.obj
+         Debug\testMultiset.obj
+         Debug\testnewMultiset.obj
+         Debug\testStudentMultiset.obj
+     1>Multiset.obj : error LNK2005: "public: bool __thiscall Multiset::contains(unsigned long const &)const " (?contains@Multiset@@QBE_NABK@Z) already defined in newMultiset.obj
+     1>Multiset.obj : error LNK2005: "public: int __thiscall Multiset::count(unsigned long const &)const " (?count@Multiset@@QBEHABK@Z) already defined in newMultiset.obj
+     1>Multiset.obj : error LNK2005: "public: bool __thiscall Multiset::empty(void)const " (?empty@Multiset@@QBE_NXZ) already defined in newMultiset.obj
+     1>Multiset.obj : error LNK2005: "public: int __thiscall Multiset::erase(unsigned long const &)" (?erase@Multiset@@QAEHABK@Z) already defined in newMultiset.obj
+     1>Multiset.obj : error LNK2005: "public: int __thiscall Multiset::eraseAll(unsigned long const &)" (?eraseAll@Multiset@@QAEHABK@Z) already defined in newMultiset.obj
+     1>Multiset.obj : error LNK2005: "public: int __thiscall Multiset::get(int,unsigned long &)const " (?get@Multiset@@QBEHHAAK@Z) already defined in newMultiset.obj
+     1>Multiset.obj : error LNK2005: "public: bool __thiscall Multiset::insert(unsigned long const &)" (?insert@Multiset@@QAE_NABK@Z) already defined in newMultiset.obj
+     1>Multiset.obj : error LNK2005: "public: int __thiscall Multiset::size(void)const " (?size@Multiset@@QBEHXZ) already defined in newMultiset.obj
+     1>Multiset.obj : error LNK2005: "public: void __thiscall Multiset::swap(class Multiset &)" (?swap@Multiset@@QAEXAAV1@@Z) already defined in newMultiset.obj
+     1>Multiset.obj : error LNK2005: "public: int __thiscall Multiset::uniqueSize(void)const " (?uniqueSize@Multiset@@QBEHXZ) already defined in newMultiset.obj
+     1>newMultiset.obj : error LNK2005: "public: bool __thiscall Multiset::contains(unsigned long const &)const " (?contains@Multiset@@QBE_NABK@Z) already defined in Multiset.obj
+     1>newMultiset.obj : error LNK2005: "public: int __thiscall Multiset::count(unsigned long const &)const " (?count@Multiset@@QBEHABK@Z) already defined in Multiset.obj
+     1>newMultiset.obj : error LNK2005: "public: bool __thiscall Multiset::empty(void)const " (?empty@Multiset@@QBE_NXZ) already defined in Multiset.obj
+     1>newMultiset.obj : error LNK2005: "public: int __thiscall Multiset::erase(unsigned long const &)" (?erase@Multiset@@QAEHABK@Z) already defined in Multiset.obj
+     1>newMultiset.obj : error LNK2005: "public: int __thiscall Multiset::eraseAll(unsigned long const &)" (?eraseAll@Multiset@@QAEHABK@Z) already defined in Multiset.obj
+     1>newMultiset.obj : error LNK2005: "public: int __thiscall Multiset::get(int,unsigned long &)const " (?get@Multiset@@QBEHHAAK@Z) already defined in Multiset.obj
+     1>newMultiset.obj : error LNK2005: "public: bool __thiscall Multiset::insert(unsigned long const &)" (?insert@Multiset@@QAE_NABK@Z) already defined in Multiset.obj
+     1>newMultiset.obj : error LNK2005: "public: int __thiscall Multiset::size(void)const " (?size@Multiset@@QBEHXZ) already defined in Multiset.obj
+     1>newMultiset.obj : error LNK2005: "public: void __thiscall Multiset::swap(class Multiset &)" (?swap@Multiset@@QAEXAAV1@@Z) already defined in Multiset.obj
+     1>newMultiset.obj : error LNK2005: "public: int __thiscall Multiset::uniqueSize(void)const " (?uniqueSize@Multiset@@QBEHXZ) already defined in Multiset.obj
+     1>testnewMultiset.obj : error LNK2005: _main already defined in testMultiset.obj
+     1>testStudentMultiset.obj : error LNK2005: _main already defined in testMultiset.obj
+     1>C:\CS32\HWK1\Debug\HWK1.exe : fatal error LNK1169: one or more multiply defined symbols found
+     1>Done Building Project "C:\CS32\HWK1\HWK1\HWK1.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:03.46

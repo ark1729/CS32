@@ -1,0 +1,18 @@
+1. Hash Table class partially functional several bugs causing unknown crashes
+2. Big O requirements were satisified for all classes that work. The implementation
+   in hashtable should also satisfy the requirements but they do not always work
+3.
+set(): checked for key if it did exist it would update the association with the new
+       value
+       if hashtable was not at capacity, new association would be mapped between
+       key and value and number of entries incremented
+       if not a permanent value this association would be marked as the youngest
+       association making it the
+       tail node of the ordered list
+       if it was the oldest the after node would become the oldest association
+touch(): checked to see if the key existed in the table
+         if it did and was non permanent it was set as the youngest node and the 
+         the associations after and before would link to complete the order link
+         while the youngest became the after node
+discard(): simply discarded oldest node marked by pointed by a tail pointer m_old
+           on the link list of order and the before node became the oldest node
